@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfwfs401h3jvw"]
+
+[ext_resource type="ArrayMesh" uid="uid://drb6ew0pd1hl7" path="res://asset/Modular SciFi MegaKit[Standard]/OBJ/Platforms/Platform_Stairs_4.obj" id="1_l5oqe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g0mii"]
+size = Vector3(2.08333, 2.45264, 5.20239)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+collision_layer = 5
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_l5oqe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.99911, 0.0420257, 0.00372828, -0.0350377, 0.875703, -0.481577, -0.0235035, 0.481018, 0.876396, -0.0300862, -0.322077, 1.69988)
+shape = SubResource("BoxShape3D_g0mii")

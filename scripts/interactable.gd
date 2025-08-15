@@ -1,0 +1,8 @@
+extends Node
+class_name Interactable
+
+func get_interaction_text() -> String:
+	return "Interact"
+
+func interact():
+	print("Default interact on", name)

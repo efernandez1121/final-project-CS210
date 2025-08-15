@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb4cbsve3848x"]
+
+[ext_resource type="Script" uid="uid://dygmu0sac7oy0" path="res://door.gd" id="1_0phs7"]
+[ext_resource type="ArrayMesh" uid="uid://brvlnx1um2vdy" path="res://asset/Modular SciFi MegaKit[Standard]/OBJ/Platforms/Door_Frame_SquareTall.obj" id="2_50cdl"]
+[ext_resource type="ArrayMesh" uid="uid://cp75rkt0uo5vq" path="res://asset/Modular SciFi MegaKit[Standard]/OBJ/Platforms/Door_Simple.obj" id="3_y5njw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4xadh"]
+size = Vector3(4.77393, 4.97107, 0.506201)
+
+[sub_resource type="Animation" id="Animation_v1oua"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6hwww"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-2, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(2, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ptf7r"]
+_data = {
+&"RESET": SubResource("Animation_v1oua"),
+&"new_animation": SubResource("Animation_6hwww")
+}
+
+[node name="door" type="StaticBody3D"]
+script = ExtResource("1_0phs7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_50cdl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, 0, 0)
+mesh = ExtResource("3_y5njw")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.05, 0, 1.58546e-07, 0, 1.05, 0, -1.58546e-07, 0, -1.05, 0, 0, 0)
+mesh = ExtResource("3_y5njw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999683, -0.0250702, 0.00249479, 0.0250436, 0.999635, 0.0101776, -0.00274905, -0.0101118, 0.999945, 0.019671, 2.496, 0.00123405)
+shape = SubResource("BoxShape3D_4xadh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ptf7r")
+}

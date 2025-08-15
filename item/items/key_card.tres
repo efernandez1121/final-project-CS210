@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bykkjqwip2n87"]
+
+[ext_resource type="Script" uid="uid://nvq7is5nf7lc" path="res://item/item_data.gd" id="1_23k7u"]
+[ext_resource type="Texture2D" uid="uid://1jwmm1f8h7e6" path="res://item/item_atlas.tres" id="2_vgvg0"]
+
+[resource]
+script = ExtResource("1_23k7u")
+name = "Key Card"
+description = "\"Wonder what areas you can unlock with this....\""
+stackable = false
+texture = ExtResource("2_vgvg0")
+metadata/_custom_type_script = "uid://nvq7is5nf7lc"

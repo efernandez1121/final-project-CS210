@@ -1,0 +1,80 @@
+[gd_scene load_steps=16 format=3 uid="uid://hrk7h10f25kt"]
+
+[ext_resource type="Script" uid="uid://cnno6w2rsn3ev" path="res://keypad.gd" id="1_6dq37"]
+[ext_resource type="PackedScene" uid="uid://bl8x6qa87mbno" path="res://keypad_button.tscn" id="2_gcv1m"]
+[ext_resource type="PackedScene" uid="uid://b36wfnyjqp3ix" path="res://keypad_button 1.tscn" id="3_bepvq"]
+[ext_resource type="PackedScene" uid="uid://bttw4midi4x2c" path="res://keypad_button 2.tscn" id="4_knbcb"]
+[ext_resource type="PackedScene" uid="uid://7g4oxxfc1ed6" path="res://keypad_button 3.tscn" id="5_hkfca"]
+[ext_resource type="PackedScene" uid="uid://d3q23py1l3p7y" path="res://keypad_button 4.tscn" id="6_276hi"]
+[ext_resource type="PackedScene" uid="uid://dojmhlptvi3f4" path="res://keypad_button 5.tscn" id="7_tfyrw"]
+[ext_resource type="PackedScene" uid="uid://bphwmlg3bqqnc" path="res://keypad_button 6.tscn" id="8_n16tp"]
+[ext_resource type="PackedScene" uid="uid://xnmf3bryys57" path="res://keypad_button 7.tscn" id="9_bnw4t"]
+[ext_resource type="PackedScene" uid="uid://c0xvmcj5edaq6" path="res://keypad_button 8.tscn" id="10_7tvwi"]
+[ext_resource type="PackedScene" uid="uid://breupbperrgip" path="res://keypad_button 9.tscn" id="11_bjvs1"]
+[ext_resource type="PackedScene" uid="uid://cpl615fld16lw" path="res://keypad_button C.tscn" id="12_hbf0r"]
+[ext_resource type="PackedScene" uid="uid://cjdj11gq2xojt" path="res://keypad_button E.tscn" id="13_ndgfg"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bmbjp"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6dq37"]
+viewport_path = NodePath("PasswordSubviewport")
+
+[node name="Keypad" type="Node3D"]
+script = ExtResource("1_6dq37")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, -1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, 0, -0.0419661, 0)
+mesh = SubResource("PlaneMesh_bmbjp")
+
+[node name="Key" type="Node3D" parent="."]
+
+[node name="KeypadButton" parent="Key" instance=ExtResource("2_gcv1m")]
+transform = Transform3D(0.99953, 0, -0.0306432, 0, 1, 0, 0.0306432, 0, 0.99953, 0.00190194, -0.256145, 0)
+
+[node name="KeypadButton2" parent="Key" instance=ExtResource("3_bepvq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.179794, 0.0820008, 0)
+
+[node name="KeypadButton3" parent="Key" instance=ExtResource("4_knbcb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0824928, 0)
+
+[node name="KeypadButton4" parent="Key" instance=ExtResource("5_hkfca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.189811, 0.0840979, 0)
+
+[node name="KeypadButton5" parent="Key" instance=ExtResource("6_276hi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.189027, -0.0246615, 0)
+
+[node name="KeypadButton6" parent="Key" instance=ExtResource("7_tfyrw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0330203, 0)
+
+[node name="KeypadButton7" parent="Key" instance=ExtResource("8_n16tp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.186852, -0.026378, 0)
+
+[node name="KeypadButton8" parent="Key" instance=ExtResource("9_bnw4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.189469, -0.148009, 0)
+
+[node name="KeypadButton9" parent="Key" instance=ExtResource("10_7tvwi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.150388, 0)
+
+[node name="KeypadButton10" parent="Key" instance=ExtResource("11_bjvs1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.190901, -0.145274, 0)
+
+[node name="KeypadButton11" parent="Key" instance=ExtResource("12_hbf0r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.186083, -0.26521, 0)
+
+[node name="KeypadButton12" parent="Key" instance=ExtResource("13_ndgfg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191095, -0.266552, 0)
+
+[node name="PasswordSubviewport" type="SubViewport" parent="."]
+size = Vector2i(40, 25)
+
+[node name="Panel" type="Panel" parent="PasswordSubviewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PasswordLabel" type="Label" parent="PasswordSubviewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.192336, 0.00038904)
+texture = SubResource("ViewportTexture_6dq37")

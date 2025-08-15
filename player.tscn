@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://dca2bjemia3r8"]
+
+[ext_resource type="Script" uid="uid://mil8njl7we1q" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Resource" uid="uid://c4fhnrsafxft4" path="res://test_inv.tres" id="2_onrkg"]
+[ext_resource type="ArrayMesh" uid="uid://djt1lmoy7b2fu" path="res://asset/Alien/OBJ-20250808T210234Z-1-001/OBJ/Alien.obj" id="3_hqtel"]
+[ext_resource type="Script" uid="uid://dfdjve4bgs6i6" path="res://interact_ray.gd" id="3_i3pqv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hqtel"]
+
+[node name="player" type="CharacterBody3D"]
+collision_layer = 6
+script = ExtResource("1_4flbx")
+inventory_data = ExtResource("2_onrkg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.54, 0, 4.72083e-08, 0, 0.54, 0, -4.72083e-08, 0, -0.54, 0, 0.293344, 0)
+mesh = ExtResource("3_hqtel")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_4flbx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.934154, 1.6191, 1.27333)
+
+[node name="InteractRay" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 4
+script = ExtResource("3_i3pqv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.858351, 0.506732, 0.533857, 1)
+
+[node name="Direction" type="Marker3D" parent="."]
+
+[node name="ActionableFinder" type="Area3D" parent="Direction"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Direction/ActionableFinder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_hqtel")
